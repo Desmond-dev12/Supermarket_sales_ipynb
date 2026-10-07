@@ -79,7 +79,6 @@ This notebook is **data preparation only**. It does NOT include:
 - ❌ EDA (Exploratory Data Analysis)
 - ❌ Predictive modeling
 
-**Next Step:** Use the cleaned dataset with a BI tool (Streamlit, Tableau, Power BI) or create a separate analysis notebook for insights.
 
 ## 🛠️ Tools Used
 
