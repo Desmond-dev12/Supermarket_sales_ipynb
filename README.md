@@ -157,7 +157,7 @@ Desmond Pimpong
 ## 🔗 Related Projects
 
 - **[Supermarket Sales Web App](https://github.com/Desmond-dev12/Supermarket-sales-Wep-App)** – Interactive Streamlit dashboard with visualizations
-- **[Supermarket Sales Analysis Notebook](#)** – Full EDA and statistical analysis (coming soon)
+  
 
 ## 📄 License
 
