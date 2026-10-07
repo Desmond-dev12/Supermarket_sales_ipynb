@@ -1,104 +1,150 @@
-# 🛒 Supermarket Sales Analysis Notebook
+# 🛒 Supermarket Sales Data Cleaning Notebook
 
-This repository contains a Jupyter notebook for cleaning, exploring, and analyzing a supermarket sales dataset. The notebook focuses on turning messy retail data into structured insights that support business decisions about sales performance, customer behavior, product lines, and payment trends.
+This repository contains a Jupyter notebook for cleaning and preparing a messy supermarket sales dataset for analysis and reporting. The notebook focuses on data quality assessment, standardization, and preparation—not visualization.
 
 ## 📌 Project Goal
 
-The notebook is designed to help answer practical retail questions such as:
+Transform raw, messy retail data into a clean, structured dataset ready for:
+- Business Intelligence dashboards
+- Statistical analysis
+- Exploratory Data Analysis (EDA)
+- Reporting and presentations
 
-- Which branch generates the highest sales?
-- Which product line contributes the most revenue?
-- What payment methods are most common?
-- How do customer type and gender affect purchasing behavior?
-- What does the sales data reveal about missing values, inconsistent formatting, and data quality issues?
-- Which product categories and customer segments need more attention?
+## 🎯 What This Notebook Does
+
+### Data Cleaning Tasks
+- **Upload CSV file** from Google Colab file system
+- **Inspect data structure** – shape, head, tail, and column overview
+- **Standardize column names** – convert to lowercase, strip whitespace, replace spaces with underscores
+- **Rename fields** for clarity and consistency (e.g., `unit_price_(ghs)` → `unit_price`)
+- **Check data types** – identify numeric vs. text columns
+- **Identify missing values** – detect NULL/NaN entries per column
+- **Data quality assessment** – spot inconsistencies and formatting issues
+
+### Issues Found & Fixed
+The notebook reveals common data quality problems:
+- Missing values in `branch`, `customer_type`, `gender`, `total`, and `rating` columns
+- Inconsistent date formats (mixed `3/24/2019`, `March 21, 2019` formats)
+- Unit price stored as text with "GHS" currency symbol (needs conversion to float)
+- Trailing/leading spaces in column names
+- Inconsistent column name capitalization
 
 ## 📊 Dataset Overview
 
-The dataset used in this notebook is a supermarket sales file with fields such as:
+**Size:** 205 rows × 16 columns
 
-- Invoice ID
-- Branch
-- City
-- Customer type
-- Gender
-- Product line
-- Unit price
-- Quantity
-- Tax
-- Total
-- Date
-- Payment method
-- COGS
-- Gross margin
-- Gross income
-- Rating
-
-The data was intentionally messy and required cleaning before analysis.
+**Fields:**
+- `invoice_id` – Transaction identifier
+- `branch` – Store location (A, B, C)
+- `city` – City name
+- `customer_type` – Member or Normal
+- `gender` – Male or Female
+- `product_line` – Category of goods
+- `unit_price` – Price per unit (currently as text with currency)
+- `quantity` – Items purchased
+- `tax` – 5% tax amount
+- `total` – Transaction total
+- `date` – Purchase date
+- `payment` – Cash, Credit card, or E-wallet
+- `cogs` – Cost of goods sold
+- `gross_margin` – Margin percentage
+- `gross_income` – Profit amount
+- `rating` – Customer satisfaction (1-10 scale)
 
 ## 🧹 Notebook Workflow
 
-The notebook includes steps to:
+```
+1. Upload CSV File
+   ↓
+2. Load with Pandas
+   ↓
+3. Inspect Data (shape, head, tail, columns)
+   ↓
+4. Clean Column Names (lowercase, strip, replace spaces)
+   ↓
+5. Rename Fields (standardize naming)
+   ↓
+6. Check Data Types & Missing Values
+   ↓
+7. Document Data Quality Issues
+   ↓
+8. Ready for Analysis!
+```
 
-- upload the source CSV file
-- inspect the dataset shape and structure
-- view the first and last rows
-- review column names
-- standardize column names
-- clean spacing and formatting issues
-- rename fields for consistency
-- check data types and missing values
-- prepare the dataset for exploratory data analysis
+## ⚠️ Important Notes
 
-## 🧠 Tools Used
+This notebook is **data preparation only**. It does NOT include:
+- ❌ Charts or visualizations
+- ❌ Statistical analysis
+- ❌ EDA (Exploratory Data Analysis)
+- ❌ Predictive modeling
 
-- Python
-- Pandas
+**Next Step:** Use the cleaned dataset with a BI tool (Streamlit, Tableau, Power BI) or create a separate analysis notebook for insights.
+
+## 🛠️ Tools Used
+
+- Python 3
+- Pandas (data manipulation)
 - Jupyter Notebook / Google Colab
-- Data cleaning and exploratory analysis techniques
+- NumPy (optional, for further processing)
 
 ## 📁 Repository Structure
 
 ```text
 Supermarket_sales_ipynb/
-├── supermarket_sale.ipynb
-├── README.md
-└── supermarket_messy.csv   (uploaded when running the notebook)
+├── supermarket_sale.ipynb          # Main cleaning notebook
+├── README.md                         # This file
+└── supermarket_messy.csv            # Input data (upload when running)
 ```
 
 ## ✅ Requirements
 
-To run the notebook locally, install:
-
+### Local Jupyter Setup
 ```bash
-pip install jupyter pandas numpy matplotlib seaborn
+pip install jupyter pandas numpy
 ```
 
-If using Google Colab, the notebook can run directly without additional setup.
+### Google Colab
+No setup needed. Simply upload the CSV when the notebook asks.
 
 ## ▶️ How to Use
 
-### Option 1: Jupyter Notebook
+### Option 1: Run in Google Colab
+1. Open the notebook link in Colab
+2. Click "Run all" or execute cells sequentially
+3. Upload `supermarket_messy.csv` when prompted
+4. Review the cleaned data output
 
-1. Open the notebook in Jupyter.
-2. Upload or place the supermarket CSV file in the same folder.
-3. Run all cells sequentially.
+### Option 2: Run Locally with Jupyter
+1. Clone or download this repository
+2. Place the CSV file in the same folder
+3. Open the notebook: `jupyter notebook supermarket_sale.ipynb`
+4. Run cells in order
 
-### Option 2: Google Colab
+## 📈 Expected Output
 
-1. Open the notebook in Colab.
-2. Upload the CSV file when prompted.
-3. Run the notebook cells in order.
+After running the notebook, you'll have:
+- A cleaned DataFrame with standardized column names
+- Missing value report per column
+- Data type confirmation
+- Ready-to-export CSV for dashboards or analysis tools
 
-## 📈 Business Value
+## 💡 Business Value
 
-This notebook supports retail and business analysis by helping users:
+This notebook supports data teams by:
+- Reducing manual data cleaning time
+- Ensuring consistent naming conventions
+- Identifying data quality gaps
+- Creating a reusable template for similar datasets
+- Preparing data for automated reporting pipelines
 
-- clean messy sales data
-- understand data quality issues
-- prepare a dataset for reporting and dashboards
-- identify sales patterns and operational insights
-- build a foundation for future BI or dashboard projects
+## 🚀 Next Steps
+
+After cleaning, consider:
+1. **Create a Streamlit Dashboard** – Use the Supermarket Sales Web App repo
+2. **Run EDA** – Generate statistics and visualizations
+3. **Build BI Reports** – Connect to Tableau/Power BI
+4. **Export for Analysis** – Use cleaned CSV for statistical tools (R, Python, SQL)
 
 ## 👤 Author
 
@@ -108,6 +154,11 @@ Desmond Pimpong
 
 - GitHub: https://github.com/Desmond-dev12
 - LinkedIn: https://linkedin.com/in/desmond-pimpong-563899433
+
+## 🔗 Related Projects
+
+- **[Supermarket Sales Web App](https://github.com/Desmond-dev12/Supermarket-sales-Wep-App)** – Interactive Streamlit dashboard with visualizations
+- **[Supermarket Sales Analysis Notebook](#)** – Full EDA and statistical analysis (coming soon)
 
 ## 📄 License
 
