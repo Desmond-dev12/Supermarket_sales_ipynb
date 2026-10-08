@@ -13,7 +13,7 @@ Transform raw, messy retail data into a clean, structured dataset ready for:
 ## 🎯 What This Notebook Does
 
 ### Data Cleaning Tasks
-- **Upload CSV file** from Google Colab file system
+- **Upload XLSV file** from Google Colab file system
 - **Inspect data structure** – shape, head, tail, and column overview
 - **Standardize column names** – convert to lowercase, strip whitespace, replace spaces with underscores
 - **Rename fields** for clarity and consistency (e.g., `unit_price_(ghs)` → `unit_price`)
